@@ -1,0 +1,16 @@
+spring.application.name: jungmini-spring-plus
+spring.profiles.active: local
+
+---
+spring:
+  config:
+    import:
+      - db.yaml
+      - jwt.yaml
+
+---
+spring.config.activate.on-profile: local
+
+logging:
+  level:
+    org.example.expert: DEBUG

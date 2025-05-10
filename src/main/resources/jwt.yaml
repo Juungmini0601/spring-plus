@@ -1,0 +1,5 @@
+spring.config.activate.on-profile: local
+
+jwt:
+  secret:
+    key: ${jwt-local-secret}

@@ -1,0 +1,9 @@
+# 투두 생성
+POST {{host}}/todos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJqdW5nbWluaTA2MDFAZ21haWwuY29tIiwidXNlclJvbGUiOiJBRE1JTiIsImV4cCI6MTc0NjkxODMyOSwiaWF0IjoxNzQ2OTE0NzI5fQ.1uDokWQrK4xNZXPVE97riKtSbtL0eQykXGM9yUlmjj0
+
+{
+  "title": "test title",
+  "contents": "test contents"
+}
