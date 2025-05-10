@@ -8,12 +8,15 @@ import org.example.expert.domain.todo.dto.request.TodoSaveRequest;
 import org.example.expert.domain.todo.dto.response.TodoResponse;
 import org.example.expert.domain.todo.dto.response.TodoSaveResponse;
 import org.example.expert.domain.todo.entity.Todo;
+import org.example.expert.domain.todo.entity.TodoSearchCondition;
 import org.example.expert.domain.todo.repository.TodoRepository;
+import org.example.expert.domain.todo.repository.TodoSpecification;
 import org.example.expert.domain.user.dto.response.UserResponse;
 import org.example.expert.domain.user.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,10 +51,22 @@ public class TodoService {
         );
     }
 
-    public Page<TodoResponse> getTodos(int page, int size) {
+    public Page<TodoResponse> getTodos(int page, int size, TodoSearchCondition todoSearchCondition) {
+        Specification<Todo> spec = Specification.where(TodoSpecification.fetchUserJoin());
         Pageable pageable = PageRequest.of(page - 1, size);
 
-        Page<Todo> todos = todoRepository.findAllByOrderByModifiedAtDesc(pageable);
+        if (todoSearchCondition != null) {
+            if (todoSearchCondition.getWeather() != null &&!todoSearchCondition.getWeather().isEmpty()) {
+                spec = spec.and(TodoSpecification.hasWeather(todoSearchCondition.getWeather()));
+            }
+
+            if (todoSearchCondition.getUpdatedDateStart() != null && todoSearchCondition.getUpdatedDateEnd() != null) {
+                spec = spec.and(TodoSpecification.updatedDateAfter(todoSearchCondition.getUpdatedDateStart()));
+                spec = spec.and(TodoSpecification.updatedDateBefore(todoSearchCondition.getUpdatedDateEnd()));
+            }
+        }
+
+        Page<Todo> todos = todoRepository.findAll(spec, pageable);
 
         return todos.map(todo -> new TodoResponse(
                 todo.getId(),

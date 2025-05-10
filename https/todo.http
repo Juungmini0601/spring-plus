@@ -1,9 +1,14 @@
 # 투두 생성
 POST {{host}}/todos
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJqdW5nbWluaTA2MDFAZ21haWwuY29tIiwibmlja25hbWUiOiJqdW5nbWluaSIsInVzZXJSb2xlIjoiQURNSU4iLCJleHAiOjE3NDY5MTkyOTEsImlhdCI6MTc0NjkxNTY5MX0.P-oAGPAejoK0nyEVe6JjXCu2Y_j823Wi4EIkjUrsGwk
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJqdW5nbWluaTA2MDFAZ21haWwuY29tIiwibmlja25hbWUiOiJqdW5nbWluaSIsInVzZXJSb2xlIjoiQURNSU4iLCJleHAiOjE3NDY5MjEzNDMsImlhdCI6MTc0NjkxNzc0M30.psAnJq9jIqSz5SmObNptvASe3rys6HbQ7C_n1tEyThU
 
 {
   "title": "test title",
   "contents": "test contents"
 }
+###
+
+# 투두 조회
+GET {{host}}/todos?weather=d
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJqdW5nbWluaTA2MDFAZ21haWwuY29tIiwibmlja25hbWUiOiJqdW5nbWluaSIsInVzZXJSb2xlIjoiQURNSU4iLCJleHAiOjE3NDY5MjEwMTEsImlhdCI6MTc0NjkxNzQxMX0.FzbieIXx-avK--M8KPMQ-ewG7LZjXKyhrRv7eejab3c
