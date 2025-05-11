@@ -1,7 +1,7 @@
 # 투두 생성
 POST {{host}}/todos
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJqdW5nbWluaTA2MDFAZ21haWwuY29tIiwibmlja25hbWUiOiJqdW5nbWluaSIsInVzZXJSb2xlIjoiQURNSU4iLCJleHAiOjE3NDY5MjEzNDMsImlhdCI6MTc0NjkxNzc0M30.psAnJq9jIqSz5SmObNptvASe3rys6HbQ7C_n1tEyThU
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJqdW5nbWluaTA2MDFAZ21haWwuY29tIiwibmlja25hbWUiOiJqdW5nbWluaSIsInVzZXJSb2xlIjoiQURNSU4iLCJleHAiOjE3NDY5MzA2MTksImlhdCI6MTc0NjkyNzAxOX0.DHn-AMKOfPRg10xp9g-xPSIW1d6MH-g6p6VpEH8OR4o
 
 {
   "title": "test title",
