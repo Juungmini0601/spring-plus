@@ -1,0 +1,13 @@
+# 댓글 생성
+POST {{host}}/todos/1/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJqdW5nbWluaTA2MDFAZ21haWwuY29tIiwibmlja25hbWUiOiJqdW5nbWluaSIsInVzZXJSb2xlIjoiQURNSU4iLCJleHAiOjE3NDY5MzA4NDQsImlhdCI6MTc0NjkyNzI0NH0.YU6EoLLiNJtppjU_x1niifD1U4xOloY0Lwt87tGxdR8
+
+{
+  "contents": "test contents"
+}
+###
+
+# 댓글 조회
+GET {{host}}/todos/1/comments
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwiZW1haWwiOiJqdW5nbWluaTA2MDFAZ21haWwuY29tIiwibmlja25hbWUiOiJqdW5nbWluaSIsInVzZXJSb2xlIjoiQURNSU4iLCJleHAiOjE3NDY5MzA4NDQsImlhdCI6MTc0NjkyNzI0NH0.YU6EoLLiNJtppjU_x1niifD1U4xOloY0Lwt87tGxdR8
