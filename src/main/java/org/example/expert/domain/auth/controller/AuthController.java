@@ -22,8 +22,5 @@ public class AuthController {
         return authService.signup(signupRequest);
     }
 
-    @PostMapping("/auth/signin")
-    public SigninResponse signin(@Valid @RequestBody SigninRequest signinRequest) {
-        return authService.signin(signinRequest);
-    }
+    // 로그인은 시큐리티 아키텍처 이용을위해 CustomUsernamePasswordAuthenticationFilter 이용
 }

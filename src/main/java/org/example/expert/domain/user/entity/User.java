@@ -24,6 +24,14 @@ public class User extends Timestamped {
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
 
+    public User(Long id, String email, String password, String nickname, UserRole userRole) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.userRole = userRole;
+        this.nickname = nickname;
+    }
+
     public User(String email, String password, String nickname, UserRole userRole) {
         this.email = email;
         this.password = password;

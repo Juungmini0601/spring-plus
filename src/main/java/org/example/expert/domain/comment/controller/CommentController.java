@@ -2,13 +2,14 @@ package org.example.expert.domain.comment.controller;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+
+import org.example.expert.domain.auth.model.CustomUserDetails;
 import org.example.expert.domain.comment.dto.request.CommentSaveRequest;
 import org.example.expert.domain.comment.dto.response.CommentResponse;
 import org.example.expert.domain.comment.dto.response.CommentSaveResponse;
 import org.example.expert.domain.comment.service.CommentService;
-import org.example.expert.domain.common.annotation.Auth;
-import org.example.expert.domain.common.dto.AuthUser;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,11 +22,12 @@ public class CommentController {
 
     @PostMapping("/todos/{todoId}/comments")
     public ResponseEntity<CommentSaveResponse> saveComment(
-            @Auth AuthUser authUser,
             @PathVariable long todoId,
-            @Valid @RequestBody CommentSaveRequest commentSaveRequest
+            @Valid @RequestBody CommentSaveRequest commentSaveRequest,
+            Authentication authentication
     ) {
-        return ResponseEntity.ok(commentService.saveComment(authUser, todoId, commentSaveRequest));
+        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+        return ResponseEntity.ok(commentService.saveComment(userDetails.getUser(), todoId, commentSaveRequest));
     }
 
     @GetMapping("/todos/{todoId}/comments")
